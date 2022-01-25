@@ -11,8 +11,10 @@ function ClientForm() {
 
   const getData = async () => {
     const res = await axios.get('http://localhost:8000/api/companies');
-    setClientList(res.data.companyData);
-    setColorNumber(res.data.companyData.length);
+    if (res.data.status === 200) {
+      setClientList(res.data.companyData);
+      setColorNumber(res.data.companyData.length);
+    }
   };
 
   useEffect(() => {

@@ -4,7 +4,7 @@ function ClientTable({ clientList, getData }) {
   const clientRows = clientList.map((client) => {
     return (
       <TableRows
-        key={client.id}
+        key={client.id === undefined ? Math.random() : client.id}
         id={client.id}
         title={client.title}
         value={client.value}
